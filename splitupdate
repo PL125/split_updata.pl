@@ -33,7 +33,7 @@ $|++;
 use constant UINT_SIZE => 4;
  
 # If a filename wasn't specified on the commmand line then
-# assume the file to be unpacked is under current directory. 
+# assume the file to be unpacked is called "UPDATE.APP".
 my $FILENAME = undef;
 my $matching = '.';
 if (@ARGV) {
@@ -41,6 +41,9 @@ if (@ARGV) {
   if (scalar(@ARGV) >= 2) {
     $matching = $ARGV[1];
   }
+}
+else {
+	$FILENAME = "UPDATE.APP";
 }
  
 open(INFILE, $FILENAME) or die "Cannot open $FILENAME: $!\n";
